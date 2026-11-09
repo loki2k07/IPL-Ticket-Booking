@@ -1,14 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>IPL 2026 Ticket Booking</title>
-
-    <!-- External CSS File -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -28,25 +24,19 @@
         </nav>
     </header>
 
-
     <!-- Hero Section -->
     <section id="hero">
-
         <h1>Welcome to IPL 2026</h1>
-
         <p>Experience the excitement of cricket's biggest festival!</p>
 
         <div class="hero-buttons">
             <a href="#schedule" class="btn">View Matches</a>
             <a href="#booking" class="btn">Book Tickets</a>
         </div>
-
     </section>
 
-
-    <!-- Match Schedule Section -->
+    <!-- Match Schedule -->
     <section id="schedule">
-
         <h2>Match Schedule</h2>
 
         <div class="filter-container">
@@ -62,7 +52,6 @@
         </div>
 
         <div class="table-container">
-
             <table>
                 <thead>
                     <tr>
@@ -108,87 +97,89 @@
                     </tr>
                 </tbody>
             </table>
-
         </div>
-
     </section>
 
-
-    <!-- Ticket Booking Section -->
+    <!-- Ticket Booking -->
     <section id="booking">
-
         <h2>Book Your IPL Tickets</h2>
 
         <div class="booking-container">
 
-            <form>
+            <!-- Booking Form -->
+            <form autocomplete="off">
 
-                <label for="name">Full Name:</label>
-                <input type="text" id="name"
-                    placeholder="Enter your name" required>
+                <div>
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="fullName"
+                        placeholder="Enter your name" required>
+                </div>
 
-                <label for="email">Email Address:</label>
-                <input type="email" id="email"
-                    placeholder="Enter your email" required>
+                <div>
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email"
+                        placeholder="Enter your email" required>
+                </div>
 
-                <label for="phone">Mobile Number:</label>
-                <input type="tel" id="phone"
-                    placeholder="Enter your mobile number" required>
+                <div>
+                    <label for="phone">Mobile Number:</label>
+                    <input type="tel" id="phone" name="phone"
+                        placeholder="Enter your mobile number"
+                        pattern="[0-9]{10}" maxlength="10" required>
+                </div>
 
-                <label for="match">Select Match:</label>
-                <select id="match" required>
-                    <option value="">Choose a match</option>
-                    <option>RCB vs CSK</option>
-                    <option>MI vs KKR</option>
-                    <option>CSK vs MI</option>
-                    <option>KKR vs RCB</option>
-                </select>
+                <div>
+                    <label for="match">Select Match:</label>
+                    <select id="match" name="match" required>
+                        <option value="">Choose a match</option>
+                        <option>RCB vs CSK</option>
+                        <option>MI vs KKR</option>
+                        <option>CSK vs MI</option>
+                        <option>KKR vs RCB</option>
+                    </select>
+                </div>
 
-                <label for="tickets">Number of Tickets:</label>
-                <input type="number" id="tickets"
-                    min="1" max="10" placeholder="Enter quantity" required>
+                <div>
+                    <label for="tickets">Number of Tickets:</label>
+                    <input type="number" id="tickets" name="tickets"
+                        min="1" max="10"
+                        placeholder="Enter quantity" required>
+                </div>
 
-                <label for="category">Ticket Category:</label>
-                <select id="category" required>
-                    <option value="">Select category</option>
-                    <option>General</option>
-                    <option>Premium</option>
-                    <option>VIP</option>
-                </select>
+                <div>
+                    <label for="category">Ticket Category:</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select category</option>
+                        <option>General</option>
+                        <option>Premium</option>
+                        <option>VIP</option>
+                    </select>
+                </div>
 
-                <label for="date">Booking Date:</label>
-                <input type="date" id="date" required>
+                <div>
+                    <label for="date">Booking Date:</label>
+                    <input type="date" id="date" name="bookingDate" required>
+                </div>
 
-                <button type="submit" class="btn">
-                    Book Tickets
-                </button>
+                <button type="submit" class="btn">Book Tickets</button>
 
             </form>
 
-
-            <!-- Booking Summary -->
+            <!-- Booking Information -->
             <div id="booking-summary">
-
                 <h3>Booking Information</h3>
 
                 <p>Choose your favourite IPL match.</p>
-
                 <p>Enter your details correctly.</p>
-
                 <p>Select your preferred ticket category.</p>
-
                 <p>Confirm your booking details.</p>
-
             </div>
 
         </div>
-
     </section>
 
-
-    <!-- Guidelines Section -->
+    <!-- Guidelines -->
     <section id="guidelines">
-
         <h2>Ticket Booking Guidelines</h2>
 
         <div class="guidelines-container">
@@ -209,21 +200,14 @@
             </div>
 
         </div>
-
     </section>
-
 
     <!-- Footer -->
     <footer>
-
         <p>&copy; 2026 IPL Ticket Booking Website.</p>
-
         <p>Designed by Lokjith K M</p>
-
         <p>All Rights Reserved.</p>
-
     </footer>
 
 </body>
-
 </html>
