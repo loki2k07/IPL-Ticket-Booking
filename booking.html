@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL 2026 - Ticket Booking</title>
+
+    <!-- Existing CSS file -->
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .booking-page {
+            max-width: 750px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+            border-top: 5px solid #ffcc00;
+        }
+
+        .booking-page h1 {
+            text-align: center;
+            color: #071b3b;
+            margin-bottom: 10px;
+        }
+
+        .booking-page .subtitle {
+            text-align: center;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #071b3b;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: 2px solid #ffcc00;
+            border-color: #071b3b;
+        }
+
+        .preferences {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        .preferences label {
+            margin-right: 18px;
+        }
+
+        .preferences input {
+            width: auto;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .form-buttons button {
+            flex: 1;
+            padding: 13px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            background: #ffcc00;
+            color: #071b3b;
+        }
+
+        .reset-btn {
+            background: #071b3b;
+            color: white;
+        }
+
+        .form-buttons button:hover {
+            opacity: 0.85;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #071b3b;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .booking-page {
+                margin: 20px 12px;
+                padding: 20px;
+            }
+
+            .form-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="booking-page">
+
+        <h1>IPL 2026 Ticket Booking</h1>
+        <p class="subtitle">Book your favourite IPL match tickets!</p>
+
+        <form action="#" method="get">
+
+            <!-- Name -->
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    minlength="3"
+                    maxlength="40"
+                    required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="example@gmail.com"
+                    maxlength="60"
+                    required>
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter 10 digit phone number"
+                    pattern="[0-9]{10}"
+                    minlength="10"
+                    maxlength="10"
+                    title="Enter exactly 10 digits"
+                    required>
+            </div>
+
+            <!-- Match Selection -->
+            <div class="form-group">
+                <label for="match">Select Match</label>
+                <select id="match" name="match" required>
+                    <option value="" disabled selected>
+                        Select a match
+                    </option>
+                    <option value="RCB vs CSK">RCB vs CSK</option>
+                    <option value="MI vs KKR">MI vs KKR</option>
+                    <option value="RCB vs MI">RCB vs MI</option>
+                    <option value="CSK vs SRH">CSK vs SRH</option>
+                </select>
+            </div>
+
+            <!-- Stand Category -->
+            <div class="form-group">
+                <label for="stand">Stand Category</label>
+                <select id="stand" name="stand" required>
+                    <option value="" disabled selected>
+                        Select stand category
+                    </option>
+                    <option value="General">General Stand</option>
+                    <option value="Premium">Premium Stand</option>
+                    <option value="VIP">VIP Stand</option>
+                </select>
+            </div>
+
+            <!-- Number of Tickets -->
+            <div class="form-group">
+                <label for="tickets">Number of Tickets</label>
+                <input
+                    type="number"
+                    id="tickets"
+                    name="tickets"
+                    min="1"
+                    max="10"
+                    value="1"
+                    required>
+            </div>
+
+            <!-- Additional Preference -->
+            <fieldset class="preferences">
+                <legend>Booking Preference</legend>
+
+                <label>
+                    <input type="radio" name="preference" value="Regular" checked>
+                    Regular
+                </label>
+
+                <label>
+                    <input type="radio" name="preference" value="Family">
+                    Family
+                </label>
+
+                <label>
+                    <input type="radio" name="preference" value="Friends">
+                    Friends
+                </label>
+            </fieldset>
+
+            <!-- Buttons -->
+            <div class="form-buttons">
+                <button type="submit" class="submit-btn">
+                    Submit Booking
+                </button>
+
+                <button type="reset" class="reset-btn">
+                    Reset Form
+                </button>
+            </div>
+
+        </form>
+
+        <a href="index.html" class="back-link">
+            ← Back to Home
+        </a>
+
+    </div>
+
+</body>
+</html>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +19,7 @@
             <ul>
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#schedule">Matches</a></li>
-                <li><a href="#booking">Book Tickets</a></li>
+                <li><a href="booking.html">Book Tickets</a></li>
                 <li><a href="#guidelines">Guidelines</a></li>
             </ul>
         </nav>
@@ -31,7 +32,7 @@
 
         <div class="hero-buttons">
             <a href="#schedule" class="btn">View Matches</a>
-            <a href="#booking" class="btn">Book Tickets</a>
+            <a href="booking.html" class="btn">Book Tickets</a>
         </div>
     </section>
 
@@ -125,7 +126,8 @@
                     <label for="phone">Mobile Number:</label>
                     <input type="tel" id="phone" name="phone"
                         placeholder="Enter your mobile number"
-                        pattern="[0-9]{10}" maxlength="10" required>
+                        pattern="[0-9]{10}" minlength="10"
+                        maxlength="10" required>
                 </div>
 
                 <div>
