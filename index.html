@@ -5,8 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>IPL 2026 Ticket Booking</title>
+
     <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
 </head>
 
 <body>
@@ -19,7 +22,7 @@
             <ul>
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#schedule">Matches</a></li>
-                <li><a href="booking.html">Book Tickets</a></li>
+                <li><a href="#booking">Book Tickets</a></li>
                 <li><a href="#guidelines">Guidelines</a></li>
             </ul>
         </nav>
@@ -32,12 +35,13 @@
 
         <div class="hero-buttons">
             <a href="#schedule" class="btn">View Matches</a>
-            <a href="booking.html" class="btn">Book Tickets</a>
+            <a href="#booking" class="btn">Book Tickets</a>
         </div>
     </section>
 
     <!-- Match Schedule -->
     <section id="schedule">
+
         <h2>Match Schedule</h2>
 
         <div class="filter-container">
@@ -53,6 +57,7 @@
         </div>
 
         <div class="table-container">
+
             <table>
                 <thead>
                     <tr>
@@ -61,16 +66,19 @@
                         <th>Date</th>
                         <th>Time</th>
                         <th>Venue</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
 
                 <tbody>
+
                     <tr>
                         <td>01</td>
                         <td>RCB vs CSK</td>
                         <td>28 March 2026</td>
                         <td>7:30 PM</td>
                         <td>Bengaluru</td>
+                        <td><a href="#booking" class="book-btn">Book</a></td>
                     </tr>
 
                     <tr>
@@ -79,6 +87,7 @@
                         <td>29 March 2026</td>
                         <td>7:30 PM</td>
                         <td>Mumbai</td>
+                        <td><a href="#booking" class="book-btn">Book</a></td>
                     </tr>
 
                     <tr>
@@ -87,6 +96,7 @@
                         <td>30 March 2026</td>
                         <td>7:30 PM</td>
                         <td>Chennai</td>
+                        <td><a href="#booking" class="book-btn">Book</a></td>
                     </tr>
 
                     <tr>
@@ -95,19 +105,22 @@
                         <td>31 March 2026</td>
                         <td>7:30 PM</td>
                         <td>Kolkata</td>
+                        <td><a href="#booking" class="book-btn">Book</a></td>
                     </tr>
+
                 </tbody>
             </table>
+
         </div>
     </section>
 
     <!-- Ticket Booking -->
     <section id="booking">
+
         <h2>Book Your IPL Tickets</h2>
 
         <div class="booking-container">
 
-            <!-- Booking Form -->
             <form autocomplete="off">
 
                 <div>
@@ -132,6 +145,7 @@
 
                 <div>
                     <label for="match">Select Match:</label>
+
                     <select id="match" name="match" required>
                         <option value="">Choose a match</option>
                         <option>RCB vs CSK</option>
@@ -150,6 +164,7 @@
 
                 <div>
                     <label for="category">Ticket Category:</label>
+
                     <select id="category" name="category" required>
                         <option value="">Select category</option>
                         <option>General</option>
@@ -160,7 +175,8 @@
 
                 <div>
                     <label for="date">Booking Date:</label>
-                    <input type="date" id="date" name="bookingDate" required>
+                    <input type="date" id="date"
+                        name="bookingDate" required>
                 </div>
 
                 <button type="submit" class="btn">Book Tickets</button>
@@ -169,12 +185,14 @@
 
             <!-- Booking Information -->
             <div id="booking-summary">
+
                 <h3>Booking Information</h3>
 
                 <p>Choose your favourite IPL match.</p>
                 <p>Enter your details correctly.</p>
                 <p>Select your preferred ticket category.</p>
                 <p>Confirm your booking details.</p>
+
             </div>
 
         </div>
@@ -182,6 +200,7 @@
 
     <!-- Guidelines -->
     <section id="guidelines">
+
         <h2>Ticket Booking Guidelines</h2>
 
         <div class="guidelines-container">
@@ -202,6 +221,7 @@
             </div>
 
         </div>
+
     </section>
 
     <!-- Footer -->
