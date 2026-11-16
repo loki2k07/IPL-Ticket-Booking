@@ -71,7 +71,6 @@
                 </thead>
 
                 <tbody>
-
                     <tr>
                         <td>01</td>
                         <td>RCB vs CSK</td>
@@ -107,7 +106,6 @@
                         <td>Kolkata</td>
                         <td><a href="#booking" class="book-btn">Book</a></td>
                     </tr>
-
                 </tbody>
             </table>
 
@@ -121,7 +119,7 @@
 
         <div class="booking-container">
 
-            <form autocomplete="off">
+            <form id="booking-form" autocomplete="off">
 
                 <div>
                     <label for="name">Full Name:</label>
@@ -148,18 +146,18 @@
 
                     <select id="match" name="match" required>
                         <option value="">Choose a match</option>
-                        <option>RCB vs CSK</option>
-                        <option>MI vs KKR</option>
-                        <option>CSK vs MI</option>
-                        <option>KKR vs RCB</option>
+                        <option value="RCB vs CSK">RCB vs CSK</option>
+                        <option value="MI vs KKR">MI vs KKR</option>
+                        <option value="CSK vs MI">CSK vs MI</option>
+                        <option value="KKR vs RCB">KKR vs RCB</option>
                     </select>
                 </div>
 
                 <div>
                     <label for="tickets">Number of Tickets:</label>
+
                     <input type="number" id="tickets" name="tickets"
-                        min="1" max="10"
-                        placeholder="Enter quantity" required>
+                        min="1" max="10" value="1" required>
                 </div>
 
                 <div>
@@ -167,14 +165,15 @@
 
                     <select id="category" name="category" required>
                         <option value="">Select category</option>
-                        <option>General</option>
-                        <option>Premium</option>
-                        <option>VIP</option>
+                        <option value="General">General - ₹500</option>
+                        <option value="Premium">Premium - ₹1000</option>
+                        <option value="VIP">VIP - ₹2000</option>
                     </select>
                 </div>
 
                 <div>
                     <label for="date">Booking Date:</label>
+
                     <input type="date" id="date"
                         name="bookingDate" required>
                 </div>
@@ -183,15 +182,32 @@
 
             </form>
 
-            <!-- Booking Information -->
+            <!-- Live Booking Summary -->
             <div id="booking-summary">
 
-                <h3>Booking Information</h3>
+                <h3>Booking Summary</h3>
 
-                <p>Choose your favourite IPL match.</p>
-                <p>Enter your details correctly.</p>
-                <p>Select your preferred ticket category.</p>
-                <p>Confirm your booking details.</p>
+                <p>Match:
+                    <span id="summary-match">Not selected</span>
+                </p>
+
+                <p>Ticket Category:
+                    <span id="summary-category">Not selected</span>
+                </p>
+
+                <p>Quantity:
+                    <span id="summary-quantity">1</span>
+                </p>
+
+                <p>Price per Ticket:
+                    ₹<span id="ticket-price">0</span>
+                </p>
+
+                <hr>
+
+                <h3>Total Price:
+                    ₹<span id="total-price">0</span>
+                </h3>
 
             </div>
 

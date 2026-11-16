@@ -1,29 +1,29 @@
 
-// =====================================
-// 1. REUSABLE TOAST NOTIFICATION FUNCTION
-// =====================================
+// ===================================
+// IPL 2026 - Activity 7 JavaScript
+// ===================================
+
+
+// 1. Toast Notification Function
 
 function showToast(message) {
 
     let toast = document.getElementById("toast");
 
     if (!toast) {
-
         toast = document.createElement("div");
         toast.id = "toast";
-        document.body.appendChild(toast);
 
         toast.style.position = "fixed";
         toast.style.bottom = "25px";
         toast.style.right = "25px";
-        toast.style.backgroundColor = "#071b3e";
+        toast.style.background = "#071b3a";
         toast.style.color = "white";
         toast.style.padding = "15px 25px";
         toast.style.borderRadius = "8px";
-        toast.style.fontSize = "15px";
         toast.style.zIndex = "1000";
-        toast.style.display = "none";
-        toast.style.boxShadow = "0 4px 12px rgba(0,0,0,0.3)";
+
+        document.body.appendChild(toast);
     }
 
     toast.textContent = message;
@@ -33,194 +33,117 @@ function showToast(message) {
 
     window.toastTimer = setTimeout(function () {
         toast.style.display = "none";
-    }, 3000);
+    }, 2500);
 }
 
 
-// =====================================
-// 2. MAIN JAVASCRIPT FUNCTIONALITY
-// =====================================
+// 2. Select HTML Elements Using DOM Selectors
 
-document.addEventListener("DOMContentLoaded", function () {
+const bookingForm = document.getElementById("booking-form");
 
-    const bookButtons = document.querySelectorAll(
-        'a[href="#booking"]'
-    );
+const matchSelect = document.getElementById("match");
 
-    const bookingSection = document.getElementById("booking");
-    const matchSelect = document.getElementById("match");
-    const bookingForm = document.querySelector("#booking form");
-    const summary = document.getElementById("booking-summary");
+const categorySelect = document.getElementById("category");
 
-    let selectedMatchDetails = null;
+const ticketInput = document.getElementById("tickets");
+
+const summaryMatch = document.getElementById("summary-match");
+
+const summaryCategory = document.getElementById("summary-category");
+
+const summaryQuantity = document.getElementById("summary-quantity");
+
+const ticketPrice = document.getElementById("ticket-price");
+
+const totalPrice = document.getElementById("total-price");
 
 
-    // =====================================
-    // 3. UPDATE BOOKING INFORMATION
-    // =====================================
+// 3. Ticket Prices
 
-    function updateSummary() {
+const prices = {
+    General: 500,
+    Premium: 1000,
+    VIP: 2000
+};
 
-        const match = matchSelect.value;
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const phone = document.getElementById("phone").value;
-        const tickets = document.getElementById("tickets").value;
-        const category = document.getElementById("category").value;
-        const date = document.getElementById("date").value;
 
-        summary.innerHTML = "";
+// 4. Update Booking Summary Function
 
-        const heading = document.createElement("h3");
-        heading.textContent = "Booking Information";
-        summary.appendChild(heading);
+function updateBookingSummary() {
 
-        function addInfo(label, value) {
+    const selectedMatch = matchSelect.value;
 
-            const p = document.createElement("p");
+    const selectedCategory = categorySelect.value;
 
-            p.textContent = label + ": " + (value || "Not selected");
+    let quantity = Number(ticketInput.value);
 
-            summary.appendChild(p);
-        }
-
-        addInfo("Match", match);
-
-        if (selectedMatchDetails) {
-
-            addInfo("Match Date", selectedMatchDetails.date);
-            addInfo("Time", selectedMatchDetails.time);
-            addInfo("Venue", selectedMatchDetails.venue);
-        }
-
-        addInfo("Name", name);
-        addInfo("Email", email);
-        addInfo("Mobile", phone);
-        addInfo("Number of Tickets", tickets);
-        addInfo("Ticket Category", category);
-        addInfo("Booking Date", date);
+    // Validate quantity
+    if (!Number.isInteger(quantity) || quantity < 1 || quantity > 10) {
+        quantity = 1;
     }
 
+    const price = prices[selectedCategory] || 0;
 
-    // =====================================
-    // 4. BOOK BUTTON AND AUTOMATIC SELECTION
-    // =====================================
+    const total = price * quantity;
 
-    bookButtons.forEach(function (button) {
+    // Update Booking Summary
+    summaryMatch.textContent = selectedMatch || "Not selected";
 
-        button.addEventListener("click", function (event) {
+    summaryCategory.textContent = selectedCategory || "Not selected";
 
-            const row = button.closest("tr");
+    summaryQuantity.textContent = quantity;
 
-            // Only process match schedule Book buttons
-            if (!row) {
-                return;
-            }
+    ticketPrice.textContent = price;
 
+    totalPrice.textContent = total;
+
+    showToast("Booking Summary Updated!");
+}
+
+
+// 5. Add Change Event Listeners
+
+matchSelect.addEventListener("change", updateBookingSummary);
+
+categorySelect.addEventListener("change", updateBookingSummary);
+
+ticketInput.addEventListener("input", updateBookingSummary);
+
+
+// 6. Smooth Scrolling
+
+document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+
+    link.addEventListener("click", function (event) {
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if (target) {
             event.preventDefault();
 
-            const cells = row.querySelectorAll("td");
-
-            const match = cells[1].textContent.trim();
-
-            selectedMatchDetails = {
-
-                match: match,
-                date: cells[2].textContent.trim(),
-                time: cells[3].textContent.trim(),
-                venue: cells[4].textContent.trim()
-
-            };
-
-            // Automatically select match
-            matchSelect.value = match;
-
-            // Update booking information
-            updateSummary();
-
-            // Smooth scrolling
-            bookingSection.scrollIntoView({
-
-                behavior: "smooth",
-                block: "start"
-
+            target.scrollIntoView({
+                behavior: "smooth"
             });
-
-            showToast("Match selected! Complete your booking.");
-
-        });
+        }
 
     });
 
-
-    // =====================================
-    // 5. MANUAL MATCH SELECTION
-    // =====================================
-
-    matchSelect.addEventListener("change", function () {
-
-        const rows = document.querySelectorAll(
-            "#schedule tbody tr"
-        );
-
-        selectedMatchDetails = null;
-
-        rows.forEach(function (row) {
-
-            const cells = row.querySelectorAll("td");
-
-            if (
-                cells[1].textContent.trim() === matchSelect.value
-            ) {
-
-                selectedMatchDetails = {
-
-                    match: cells[1].textContent.trim(),
-                    date: cells[2].textContent.trim(),
-                    time: cells[3].textContent.trim(),
-                    venue: cells[4].textContent.trim()
-
-                };
-
-            }
-
-        });
-
-        updateSummary();
-
-    });
+});
 
 
-    // =====================================
-    // 6. UPDATE DETAILS WHEN USER TYPES
-    // =====================================
+// 7. Booking Form Submission
 
-    bookingForm.addEventListener("input", function () {
+bookingForm.addEventListener("submit", function (event) {
 
-        updateSummary();
+    event.preventDefault();
 
-    });
+    if (!bookingForm.checkValidity()) {
+        bookingForm.reportValidity();
+        return;
+    }
 
-    bookingForm.addEventListener("change", function () {
+    updateBookingSummary();
 
-        updateSummary();
-
-    });
-
-
-    // =====================================
-    // 7. BOOKING FORM SUBMISSION
-    // =====================================
-
-    bookingForm.addEventListener("submit", function (event) {
-
-        event.preventDefault();
-
-        updateSummary();
-
-        showToast("Your IPL ticket booking was successful!");
-
-    });
-
+    showToast("Your booking details are ready!");
 
 });
