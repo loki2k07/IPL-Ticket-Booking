@@ -1,0 +1,356 @@
+
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f0f2f5;
+  color: #222;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Navbar */
+nav {
+  background: #111827;
+  color: white;
+  padding: 20px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+nav h2 {
+  color: #ffb800;
+  font-size: 24px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+nav a:hover {
+  color: #ffb800;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #111827, #e65100);
+  color: white;
+  text-align: center;
+  padding: 75px 20px;
+}
+
+.hero-section h1 {
+  color: white;
+  font-size: 40px;
+  margin-bottom: 18px;
+}
+
+.hero-section h2 {
+  color: #ffcc80;
+  font-size: 25px;
+  margin-bottom: 18px;
+}
+
+.hero-section p {
+  font-size: 17px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.hero-button {
+  display: inline-block;
+  background: #ffb800;
+  color: #111827;
+  padding: 13px 28px;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.hero-button:hover {
+  background: white;
+  transform: translateY(-3px);
+}
+
+/* Main Content */
+main {
+  width: 100%;
+  padding: 35px 4%;
+}
+
+.section-heading {
+  text-align: center;
+  font-size: 32px;
+  color: #111827;
+  margin: 25px 0 12px;
+}
+
+.section-description {
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+/* Match Cards Container */
+.matches-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+/* Match Card */
+.match-card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.match-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 9px 25px rgba(0, 0, 0, 0.15);
+}
+
+.match-card h2 {
+  color: #e65100;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.match-card p {
+  margin: 14px 0;
+  font-size: 15px;
+  color: #444;
+}
+
+.match-card .total {
+  color: #e65100;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.match-card hr {
+  margin: 18px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+/* Ticket Buttons */
+.ticket-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+button {
+  background: #ff6b00;
+  color: white;
+  border: none;
+  padding: 11px 14px;
+  margin: 5px 2px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #d94f00;
+}
+
+button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+/* Customer Name Input */
+.match-card input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  font-size: 15px;
+}
+
+.match-card input:focus {
+  outline: 2px solid #ff6b00;
+  border-color: #ff6b00;
+}
+
+.book-button {
+  width: 100%;
+  padding: 13px;
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+/* Booking Confirmation */
+.confirmation {
+  background: #e8f8ed;
+  border: 1px solid #28a745;
+  border-radius: 9px;
+  padding: 16px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.confirmation h3 {
+  color: #16803c;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.confirmation p {
+  color: #222;
+  margin: 9px 0;
+  font-size: 14px;
+}
+
+/* My Bookings Section */
+.bookings-section {
+  margin-top: 65px;
+  padding: 30px 0;
+  border-top: 2px solid #ddd;
+}
+
+.bookings-section h1 {
+  text-align: center;
+  color: #111827;
+  margin-bottom: 25px;
+  font-size: 30px;
+}
+
+.empty-message {
+  text-align: center;
+  color: #777;
+  padding: 25px;
+}
+
+.booking-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.booking-item {
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  border-left: 5px solid #28a745;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.booking-item h3 {
+  color: #e65100;
+  margin-bottom: 15px;
+}
+
+.booking-item p {
+  margin: 10px 0;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.booking-item span {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 7px 12px;
+  background: #e8f8ed;
+  color: #16803c;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+/* Footer */
+footer {
+  background: #111827;
+  color: white;
+  text-align: center;
+  padding: 22px;
+  margin-top: 30px;
+}
+
+/* Tablet Responsive Design */
+@media (max-width: 900px) {
+  .matches-container,
+  .booking-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  nav h2 {
+    font-size: 21px;
+  }
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 600px) {
+  nav {
+    justify-content: center;
+    text-align: center;
+  }
+
+  nav h2 {
+    width: 100%;
+    font-size: 20px;
+  }
+
+  nav a {
+    margin: 5px 10px;
+  }
+
+  .hero-section {
+    padding: 50px 15px;
+  }
+
+  .hero-section h1 {
+    font-size: 28px;
+  }
+
+  .hero-section h2 {
+    font-size: 19px;
+  }
+
+  .hero-section p {
+    font-size: 15px;
+  }
+
+  main {
+    padding: 20px 5%;
+  }
+
+  .section-heading {
+    font-size: 25px;
+  }
+
+  .matches-container,
+  .booking-list {
+    grid-template-columns: 1fr;
+  }
+
+  .match-card {
+    padding: 22px 15px;
+  }
+}
