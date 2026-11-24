@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,11 +13,15 @@
 
 <body>
 
-    <!-- Navigation Bar -->
+    <!-- Navbar -->
     <header>
-        <div class="logo">IPL 2026</div>
+        <div class="logo">IPL <span>2026</span></div>
 
-        <nav>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+            ☰
+        </button>
+
+        <nav id="navbar">
             <ul>
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#schedule">Matches</a></li>
@@ -44,6 +47,7 @@
 
         <h2>Match Schedule</h2>
 
+        <!-- Team Filter -->
         <div class="filter-container">
             <label for="teamFilter">Select Team:</label>
 
@@ -56,84 +60,77 @@
             </select>
         </div>
 
-        <div class="table-container">
+        <!-- Grid / List Toggle -->
+        <div class="view-controls">
+            <button id="gridBtn" class="active">Grid View</button>
+            <button id="listBtn">List View</button>
+        </div>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Match No.</th>
-                        <th>Teams</th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Venue</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
+        <!-- Match Cards -->
+        <div class="match-container" id="matchContainer">
 
-                <tbody>
-                    <tr>
-                        <td>01</td>
-                        <td>RCB vs CSK</td>
-                        <td>28 March 2026</td>
-                        <td>7:30 PM</td>
-                        <td>Bengaluru</td>
-                        <td><a href="#booking" class="book-btn">Book</a></td>
-                    </tr>
+            <div class="match-card" data-team="RCB CSK">
+                <h3>RCB vs CSK</h3>
+                <p class="match-number">Match No: 01</p>
+                <p>📅 28 March 2026</p>
+                <p>⏰ 7:30 PM</p>
+                <p>📍 Bengaluru</p>
+                <a href="#booking" class="book-btn" data-match="RCB vs CSK">Book Tickets</a>
+            </div>
 
-                    <tr>
-                        <td>02</td>
-                        <td>MI vs KKR</td>
-                        <td>29 March 2026</td>
-                        <td>7:30 PM</td>
-                        <td>Mumbai</td>
-                        <td><a href="#booking" class="book-btn">Book</a></td>
-                    </tr>
+            <div class="match-card" data-team="MI KKR">
+                <h3>MI vs KKR</h3>
+                <p class="match-number">Match No: 02</p>
+                <p>📅 29 March 2026</p>
+                <p>⏰ 7:30 PM</p>
+                <p>📍 Mumbai</p>
+                <a href="#booking" class="book-btn" data-match="MI vs KKR">Book Tickets</a>
+            </div>
 
-                    <tr>
-                        <td>03</td>
-                        <td>CSK vs MI</td>
-                        <td>30 March 2026</td>
-                        <td>7:30 PM</td>
-                        <td>Chennai</td>
-                        <td><a href="#booking" class="book-btn">Book</a></td>
-                    </tr>
+            <div class="match-card" data-team="CSK MI">
+                <h3>CSK vs MI</h3>
+                <p class="match-number">Match No: 03</p>
+                <p>📅 30 March 2026</p>
+                <p>⏰ 7:30 PM</p>
+                <p>📍 Chennai</p>
+                <a href="#booking" class="book-btn" data-match="CSK vs MI">Book Tickets</a>
+            </div>
 
-                    <tr>
-                        <td>04</td>
-                        <td>KKR vs RCB</td>
-                        <td>31 March 2026</td>
-                        <td>7:30 PM</td>
-                        <td>Kolkata</td>
-                        <td><a href="#booking" class="book-btn">Book</a></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="match-card" data-team="KKR RCB">
+                <h3>KKR vs RCB</h3>
+                <p class="match-number">Match No: 04</p>
+                <p>📅 31 March 2026</p>
+                <p>⏰ 7:30 PM</p>
+                <p>📍 Kolkata</p>
+                <a href="#booking" class="book-btn" data-match="KKR vs RCB">Book Tickets</a>
+            </div>
 
         </div>
     </section>
 
-    <!-- Ticket Booking -->
+    <!-- Booking Section -->
     <section id="booking">
 
         <h2>Book Your IPL Tickets</h2>
 
         <div class="booking-container">
 
+            <!-- Booking Form -->
             <form id="booking-form" autocomplete="off">
 
-                <div>
+                <div class="form-group">
                     <label for="name">Full Name:</label>
                     <input type="text" id="name" name="fullName"
                         placeholder="Enter your name" required>
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="email">Email Address:</label>
                     <input type="email" id="email" name="email"
                         placeholder="Enter your email" required>
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="phone">Mobile Number:</label>
                     <input type="tel" id="phone" name="phone"
                         placeholder="Enter your mobile number"
@@ -141,7 +138,7 @@
                         maxlength="10" required>
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="match">Select Match:</label>
 
                     <select id="match" name="match" required>
@@ -153,14 +150,14 @@
                     </select>
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="tickets">Number of Tickets:</label>
 
                     <input type="number" id="tickets" name="tickets"
                         min="1" max="10" value="1" required>
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="category">Ticket Category:</label>
 
                     <select id="category" name="category" required>
@@ -171,7 +168,7 @@
                     </select>
                 </div>
 
-                <div>
+                <div class="form-group">
                     <label for="date">Booking Date:</label>
 
                     <input type="date" id="date"
@@ -182,7 +179,7 @@
 
             </form>
 
-            <!-- Live Booking Summary -->
+            <!-- Booking Summary -->
             <div id="booking-summary">
 
                 <h3>Booking Summary</h3>
@@ -237,7 +234,6 @@
             </div>
 
         </div>
-
     </section>
 
     <!-- Footer -->
