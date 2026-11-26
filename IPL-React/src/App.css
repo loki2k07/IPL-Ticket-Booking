@@ -31,7 +31,7 @@ nav {
 }
 
 nav h2 {
-  color: #ffb800;
+  color: #f6f6f8;
   font-size: 24px;
 }
 
@@ -43,7 +43,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #ffb800;
+  color: #000dff;
 }
 
 /* Hero Section */
